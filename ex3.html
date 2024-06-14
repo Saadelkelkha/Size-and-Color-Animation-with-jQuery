@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animation de Taille et Couleur</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #square {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            margin: 0 auto;
+        }
+        button {
+            font-size: 1em;
+            padding: 10px 20px;
+            margin: 5px;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $('#growButton').click(function(){
+                $('#square').animate({"width":"+=20px","height":"+=20px"},2000);
+            })
+            $('#shrinkButton').click(function(){
+                $('#square').animate({"width":"-=20px","height":"-=20px"},2000);
+            })
+            var count = 0;
+            $('#colorButton').click(function(){
+                var tab = ["red","green","yellow"];
+                $('#square').css("backgroundColor",tab[count]);
+                if(count == 2){
+                    count = 0;
+                }else{
+                    count += 1;
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <h1>Size and Color Animation</h1>
+    <div id="square"></div>
+    <br>
+    <button id="growButton">Enlarge</button>
+    <button id="shrinkButton">Reduce</button>
+    <button id="colorButton">Change Color</button>
+</body>
+</html>
